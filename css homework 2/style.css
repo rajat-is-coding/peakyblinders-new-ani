@@ -1,0 +1,190 @@
+ /* --- GLOBAL RESETS & FONTS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't break layout */
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(3, 3, 35);
+    color: white;
+    padding-bottom: 100px; /* Extra space for fixed footer */
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* --- SKIP TO MAIN CONTENT (Accessibility) --- */
+.skip-link {
+    /* Sit on top of the content in the top-left corner */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    /* Styling */
+    background: #000;
+    color: #fff;
+    padding: 5px 10px; /* Small size */
+    font-size: 12px;   /* Small text */
+    font-weight: bold;
+    text-decoration: none;
+}
+/* When the link is focused (via Tab key), slide it down */
+.skip-link:focus {
+    top: 0;
+}
+
+/* --- NAVBAR ANIMATIONS --- */
+.navbar {
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 15px;
+    position: sticky; /* Keeps navbar at top when scrolling */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.logo a {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #bfa15f; /* Gold color typical of 1920s style */
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 25px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline animation for nav links */
+li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #bfa15f;
+    transition: width 0.3s ease;
+}
+
+li a:hover {
+    color: #bfa15f;
+}
+
+li a:hover::after {
+    width: 100%;
+}
+
+/* --- MAIN CONTENT ANIMATIONS --- */
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    /* Apply the fade-in animation */
+    animation: fadeInUp 1.5s ease-out;
+}
+
+h2 {
+    color: #bfa15f;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+/* Image Zoom Animation */
+.feature-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #555;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+}
+
+.feature-img:hover {
+    transform: scale(1.1) rotate(2deg); /* slight zoom and tilt */
+    border-color: #bfa15f;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    border-top: 3px solid #bfa15f;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Netflix Button Styling */
+.netflix-btn {
+    text-decoration: none;
+    background-color: #e50914; /* Netflix Red */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.netflix-btn:hover {
+    background-color: #f40612;
+    transform: translateY(-3px); /* Lift up slightly */
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+
+/* Slide content up and fade in */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
